@@ -1,0 +1,449 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\queries\\reportequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\queries\\reportequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\queries\\recepcionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\queries\\recepcionquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\types\\reportemensual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\types\\reportemensual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\queries\\kardexquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\queries\\kardexquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\types\\entregatype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\types\\entregatype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\types\\kardexitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\types\\kardexitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\types\\kardexmovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\types\\kardexmovimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\mutations\\recepcionmutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\mutations\\recepcionmutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\inputs\\recepcioninput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\inputs\\recepcioninput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\models\\recepcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:models\\recepcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\inputs\\entregainput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\inputs\\entregainput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\mutations\\entregamutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\mutations\\entregamutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\inputs\\iteminput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\inputs\\iteminput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\mutations\\itemmutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\mutations\\itemmutation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\queries\\entregaquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\queries\\entregaquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\queries\\itemquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\queries\\itemquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\models\\entrega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:models\\entrega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\graphql\\types\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:graphql\\types\\itemtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|c:\\users\\porta\\onedrive\\documentos\\univalle\\inventario_tres_cruces\\inventariosilo\\settings\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1A6682F-F317-9B3F-28C2-EF5557A99689}|InventarioSilo.csproj|solutionrelative:settings\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 19,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReporteQuery.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\ReporteQuery.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Queries\\ReporteQuery.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\ReporteQuery.cs",
+              "RelativeToolTip": "GraphQl\\Queries\\ReporteQuery.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:10:44.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReporteMensual.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\ReporteMensual.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Types\\ReporteMensual.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\ReporteMensual.cs",
+              "RelativeToolTip": "GraphQl\\Types\\ReporteMensual.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:10:32.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KardexQuery.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\KardexQuery.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Queries\\KardexQuery.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\KardexQuery.cs",
+              "RelativeToolTip": "GraphQl\\Queries\\KardexQuery.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:10:09.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "KardexItem.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\KardexItem.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Types\\KardexItem.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\KardexItem.cs",
+              "RelativeToolTip": "GraphQl\\Types\\KardexItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:09:54.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "KardexMovimiento.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\KardexMovimiento.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Types\\KardexMovimiento.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\KardexMovimiento.cs",
+              "RelativeToolTip": "GraphQl\\Types\\KardexMovimiento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:09:41.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RecepcionQuery.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\RecepcionQuery.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Queries\\RecepcionQuery.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\RecepcionQuery.cs",
+              "RelativeToolTip": "GraphQl\\Queries\\RecepcionQuery.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:06:44.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RecepcionMutation.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\RecepcionMutation.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Mutations\\RecepcionMutation.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\RecepcionMutation.cs",
+              "RelativeToolTip": "GraphQl\\Mutations\\RecepcionMutation.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAwwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:06:32.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RecepcionInput.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\RecepcionInput.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Inputs\\RecepcionInput.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\RecepcionInput.cs",
+              "RelativeToolTip": "GraphQl\\Inputs\\RecepcionInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:06:18.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Recepcion.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Recepcion.cs",
+              "RelativeDocumentMoniker": "Models\\Recepcion.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Recepcion.cs",
+              "RelativeToolTip": "Models\\Recepcion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T19:06:05.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EntregaMutation.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\EntregaMutation.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Mutations\\EntregaMutation.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\EntregaMutation.cs",
+              "RelativeToolTip": "GraphQl\\Mutations\\EntregaMutation.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:36:42.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ItemMutation.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\ItemMutation.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Mutations\\ItemMutation.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Mutations\\ItemMutation.cs",
+              "RelativeToolTip": "GraphQl\\Mutations\\ItemMutation.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:36:34.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ItemType.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\ItemType.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Types\\ItemType.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\ItemType.cs",
+              "RelativeToolTip": "GraphQl\\Types\\ItemType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:35:49.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EntregaType.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\EntregaType.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Types\\EntregaType.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Types\\EntregaType.cs",
+              "RelativeToolTip": "GraphQl\\Types\\EntregaType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:35:34.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EntregaQuery.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\EntregaQuery.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Queries\\EntregaQuery.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\EntregaQuery.cs",
+              "RelativeToolTip": "GraphQl\\Queries\\EntregaQuery.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA7wB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:35:27.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ItemQuery.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\ItemQuery.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Queries\\ItemQuery.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Queries\\ItemQuery.cs",
+              "RelativeToolTip": "GraphQl\\Queries\\ItemQuery.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:35:19.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EntregaInput.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\EntregaInput.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Inputs\\EntregaInput.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\EntregaInput.cs",
+              "RelativeToolTip": "GraphQl\\Inputs\\EntregaInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:35:01.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ItemInput.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\ItemInput.cs",
+              "RelativeDocumentMoniker": "GraphQl\\Inputs\\ItemInput.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\GraphQl\\Inputs\\ItemInput.cs",
+              "RelativeToolTip": "GraphQl\\Inputs\\ItemInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:34:31.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Entrega.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Entrega.cs",
+              "RelativeDocumentMoniker": "Models\\Entrega.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Entrega.cs",
+              "RelativeToolTip": "Models\\Entrega.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:34:06.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "Models\\Item.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Models\\Item.cs",
+              "RelativeToolTip": "Models\\Item.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:33:46.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:08:26.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MongoDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Data\\MongoDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\MongoDbContext.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Data\\MongoDbContext.cs",
+              "RelativeToolTip": "Data\\MongoDbContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:06:04.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-19T18:05:01.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MongoDbSettings.cs",
+              "DocumentMoniker": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Settings\\MongoDbSettings.cs",
+              "RelativeDocumentMoniker": "Settings\\MongoDbSettings.cs",
+              "ToolTip": "C:\\Users\\porta\\OneDrive\\Documentos\\Univalle\\inventario_tres_cruces\\InventarioSilo\\Settings\\MongoDbSettings.cs",
+              "RelativeToolTip": "Settings\\MongoDbSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T18:04:53.824Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
