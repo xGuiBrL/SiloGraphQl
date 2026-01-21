@@ -12,7 +12,7 @@ namespace InventarioSilo.GraphQL.Mutations
     [ExtendObjectType(OperationTypeNames.Mutation)]
     public class AuthMutation
     {
-        [AllowAnonymous]
+        [Authorize]
         public async Task<Usuario> RegistrarUsuario(
             RegistrarUsuarioInput input,
             [Service] MongoDbContext context)
