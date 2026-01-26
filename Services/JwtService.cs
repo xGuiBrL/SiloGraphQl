@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using InventarioSilo.Models;
+using InventarioSilo.Security;
 using InventarioSilo.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -31,7 +32,8 @@ namespace InventarioSilo.Services
             {
                 new Claim("id", usuario.Id ?? string.Empty),
                 new Claim("usuario", usuario.NombreUsuario ?? string.Empty),
-                new Claim("nombre", usuario.Nombre ?? string.Empty)
+                new Claim("nombre", usuario.Nombre ?? string.Empty),
+                new Claim(ClaimTypes.Role, string.IsNullOrWhiteSpace(usuario.Rol) ? UserRoles.Usuario : usuario.Rol)
             };
 
             var token = new JwtSecurityToken(

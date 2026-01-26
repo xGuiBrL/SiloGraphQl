@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using HotChocolate;
 using InventarioSilo.GraphQL.Inputs;
 using InventarioSilo.Models;
+using MongoDB.Bson;
 
 namespace InventarioSilo.GraphQL.Validation
 {
@@ -15,14 +17,31 @@ namespace InventarioSilo.GraphQL.Validation
 
         private static readonly Regex CodeRegex = new("^[A-Z0-9-]+$", RegexOptions.Compiled);
         private static readonly Regex PlainTextRegex = new(@"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9.,()'\-\s]+$", RegexOptions.Compiled);
+        private static readonly Dictionary<string, string> AllowedUnits = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["LT"] = "Lt",
+            ["KG"] = "Kg",
+            ["MTS"] = "Mts",
+            ["UND"] = "Und"
+        };
 
         public record ItemPayload(
+            string CategoriaId,
+            string UbicacionId,
             string CodigoMaterial,
-            string NombreMaterial,
             string DescripcionMaterial,
             decimal CantidadStock,
-            string Localizacion,
             string UnidadMedida);
+
+        public record CategoriaPayload(
+            string Id,
+            string Nombre,
+            string Descripcion);
+
+        public record UbicacionPayload(
+            string Id,
+            string Nombre,
+            string Descripcion);
 
         public record MovementPayload(
             string Id,
@@ -41,12 +60,60 @@ namespace InventarioSilo.GraphQL.Validation
             }
 
             return new ItemPayload(
+                NormalizeObjectId(input.CategoriaId, "categoriaId"),
+                NormalizeObjectId(input.UbicacionId, "ubicacionId"),
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
-                NormalizePlainText(input.NombreMaterial, "nombreMaterial", 60, titleCase: true),
                 NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
                 NormalizeQuantity(input.CantidadStock, "cantidadStock", ItemMinStock, ItemMaxStock),
-                NormalizePlainText(input.Localizacion, "localizacion", 40, titleCase: true),
-                NormalizeCode(input.UnidadMedida, "unidadMedida", 10));
+                NormalizeUnit(input.UnidadMedida, "unidadMedida"));
+        }
+
+        public static CategoriaPayload NormalizeCategoriaInput(CategoriaInput input)
+        {
+            if (input is null)
+            {
+                throw BuildValidationError("categoria", "Los datos de la categoría son obligatorios.");
+            }
+
+            var nombre = NormalizePlainText(input.Nombre, "nombre", 60, titleCase: true);
+            var descripcion = string.IsNullOrWhiteSpace(input.Descripcion)
+                ? string.Empty
+                : NormalizePlainText(input.Descripcion, "descripcion", 140, titleCase: false);
+
+            return new CategoriaPayload(
+                string.Empty,
+                nombre,
+                descripcion);
+        }
+
+        public static CategoriaPayload NormalizeCategoriaUpdateInput(CategoriaUpdateInput input)
+        {
+            var basePayload = NormalizeCategoriaInput(input);
+            return basePayload with { Id = NormalizeObjectId(input.Id, "id") };
+        }
+
+        public static UbicacionPayload NormalizeUbicacionInput(UbicacionInput input)
+        {
+            if (input is null)
+            {
+                throw BuildValidationError("ubicacion", "Los datos de la ubicación son obligatorios.");
+            }
+
+            var nombre = NormalizePlainText(input.Nombre, "nombre", 60, titleCase: true);
+            var descripcion = string.IsNullOrWhiteSpace(input.Descripcion)
+                ? string.Empty
+                : NormalizePlainText(input.Descripcion, "descripcion", 140, titleCase: false);
+
+            return new UbicacionPayload(
+                string.Empty,
+                nombre,
+                descripcion);
+        }
+
+        public static UbicacionPayload NormalizeUbicacionUpdateInput(UbicacionUpdateInput input)
+        {
+            var basePayload = NormalizeUbicacionInput(input);
+            return basePayload with { Id = NormalizeObjectId(input.Id, "id") };
         }
 
         public static MovementPayload NormalizeRecepcionInput(RecepcionInput input)
@@ -59,9 +126,9 @@ namespace InventarioSilo.GraphQL.Validation
             return new MovementPayload(
                 string.Empty,
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
-                NormalizePlainText(input.RecibidoDe, "recibidoDe", 60, titleCase: true),
+                NormalizePlainText(input.RecibidoDe, "recibidoDe", 60, titleCase: true, preserveTrailingSpace: true),
                 NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
-                NormalizeCode(input.UnidadMedida, "unidadMedida", 10),
+                NormalizeUnit(input.UnidadMedida, "unidadMedida"),
                 NormalizeQuantity(input.CantidadRecibida, "cantidadRecibida", MovementMin, MovementMax),
                 NormalizeOptionalText(input.Observaciones, 220));
         }
@@ -85,7 +152,7 @@ namespace InventarioSilo.GraphQL.Validation
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
                 NormalizePlainText(input.EntregadoA, "entregadoA", 60, titleCase: true),
                 NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
-                NormalizeCode(input.UnidadMedida, "unidadMedida", 10),
+                NormalizeUnit(input.UnidadMedida, "unidadMedida"),
                 NormalizeQuantity(input.CantidadEntregada, "cantidadEntregada", MovementMin, MovementMax),
                 NormalizeOptionalText(input.Observaciones, 220));
         }
@@ -105,6 +172,21 @@ namespace InventarioSilo.GraphQL.Validation
             }
 
             return id.Trim();
+        }
+
+        public static string NormalizeObjectId(string? value, string field)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw BuildValidationError(field, "El identificador es obligatorio.");
+            }
+
+            if (!ObjectId.TryParse(value, out var bsonId))
+            {
+                throw BuildValidationError(field, "Identificador inválido.");
+            }
+
+            return bsonId.ToString();
         }
 
         public static void EnsureItemSnapshotMatches(Item item, MovementPayload payload, string context)
@@ -155,13 +237,25 @@ namespace InventarioSilo.GraphQL.Validation
             return normalized;
         }
 
-        private static string NormalizePlainText(string? value, string field, int maxLength, bool titleCase)
+        private static string NormalizeUnit(string? value, string field)
+        {
+            var normalized = NormalizeCode(value, field, 10);
+            if (!AllowedUnits.TryGetValue(normalized, out var canonical))
+            {
+                throw BuildValidationError(field, "Selecciona una unidad válida (Lt, Kg, Mts o Und).");
+            }
+
+            return canonical;
+        }
+
+        private static string NormalizePlainText(string? value, string field, int maxLength, bool titleCase, bool preserveTrailingSpace = false)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
                 throw BuildValidationError(field, "Este campo es obligatorio.");
             }
 
+            var hadTrailingSpace = preserveTrailingSpace && Regex.IsMatch(value, "\\s$", RegexOptions.Singleline);
             var normalized = Regex.Replace(value.Trim(), @"\s+", " ");
             if (!PlainTextRegex.IsMatch(normalized))
             {
@@ -176,6 +270,11 @@ namespace InventarioSilo.GraphQL.Validation
             if (titleCase)
             {
                 normalized = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(normalized.ToLowerInvariant());
+            }
+
+            if (preserveTrailingSpace && hadTrailingSpace && normalized.Length < maxLength)
+            {
+                normalized += " ";
             }
 
             return normalized;

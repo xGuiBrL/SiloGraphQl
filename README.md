@@ -12,6 +12,11 @@ Configura las siguientes variables en tu entorno (local, Docker o Render). Usa `
 - `JwtSettings__Issuer`
 - `JwtSettings__Audience`
 - `JwtSettings__ExpirationMinutes`
+- `AdminSeed__Nombre`
+- `AdminSeed__Usuario`
+- `AdminSeed__Password`
+
+> **Nota:** Para el usuario administrador inicial, define estas variables en tu `.env` (archivo ignorado por git) con los valores: Nombre `xxx`, Usuario `xxx` y Password `xxx`. El seeder crea o actualiza este usuario automáticamente con rol `admin`.
 
 ## Ejecución local
 

@@ -1,3 +1,4 @@
+using InventarioSilo.Security;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -17,5 +18,8 @@ namespace InventarioSilo.Models
 
         [BsonElement("nombre")]
         public string Nombre { get; set; } = string.Empty;
+
+        [BsonElement("rol")]
+        public string Rol { get; set; } = UserRoles.Usuario;
     }
 }

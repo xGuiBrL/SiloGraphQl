@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using InventarioSilo.Data;
+using InventarioSilo.Seeding;
 using InventarioSilo.Settings;
 using InventarioSilo.GraphQL.Queries;
 using InventarioSilo.GraphQL.Mutations;
@@ -21,6 +22,9 @@ builder.Services.Configure<MongoDbSettings>(
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings"));
 
+builder.Services.Configure<AdminSeedSettings>(
+    builder.Configuration.GetSection("AdminSeed"));
+
 builder.Services.AddSingleton(sp =>
 {
     var settings = builder.Configuration
@@ -31,6 +35,7 @@ builder.Services.AddSingleton(sp =>
 });
 
 builder.Services.AddSingleton<JwtService>();
+builder.Services.AddSingleton<PasswordHasher>();
 
 var jwtSettings = builder.Configuration
     .GetSection("JwtSettings").Get<JwtSettings>()
@@ -64,8 +69,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
                 "http://localhost:5173",
-            "http://localhost:5174",
-            "https://inventario-silo.onrender.com")
+                "https://inventario-silo.onrender.com")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -78,15 +82,23 @@ builder.Services
     .AddMutationType(d => d.Name("Mutation"))
     .AddAuthorization()
     .AddType<ItemQuery>()
+    .AddType<CategoriaQuery>()
+    .AddType<UbicacionQuery>()
     .AddType<EntregaQuery>()
     .AddType<RecepcionQuery>()
     .AddType<AuthQuery>()
     .AddType<ItemMutation>()
+    .AddType<CategoriaMutation>()
+    .AddType<UbicacionMutation>()
     .AddType<EntregaMutation>()
     .AddType<RecepcionMutation>()
     .AddType<AuthMutation>()
     .AddType<KardexQuery>()
-    .AddType<ReporteQuery>();
+    .AddType<ReporteQuery>()
+    .ModifyRequestOptions(options =>
+    {
+        options.IncludeExceptionDetails = builder.Environment.IsDevelopment();
+    });
 
 var app = builder.Build();
 
@@ -98,6 +110,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapGraphQL("/graphql").RequireCors("DashboardCors");
+
+await AdminUserSeeder.EnsureAdminUserAsync(app.Services);
 
 app.Run();
 

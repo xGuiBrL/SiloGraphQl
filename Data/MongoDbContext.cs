@@ -18,5 +18,7 @@ namespace InventarioSilo.Data
             => _database.GetCollection<T>(name);
 
         public IMongoCollection<Usuario> Usuarios => _database.GetCollection<Usuario>("Usuarios");
+        public IMongoCollection<Categoria> Categorias => _database.GetCollection<Categoria>("Categorias");
+        public IMongoCollection<Ubicacion> Ubicaciones => _database.GetCollection<Ubicacion>("Ubicaciones");
     }
 }
