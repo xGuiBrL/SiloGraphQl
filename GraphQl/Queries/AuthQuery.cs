@@ -3,6 +3,7 @@ using HotChocolate;
 using HotChocolate.Authorization;
 using InventarioSilo.Data;
 using InventarioSilo.Models;
+using InventarioSilo.Security;
 using MongoDB.Driver;
 
 namespace InventarioSilo.GraphQL.Queries
@@ -27,6 +28,16 @@ namespace InventarioSilo.GraphQL.Queries
                 throw new GraphQLException("Usuario no encontrado.");
 
             return usuario;
+        }
+
+        [Authorize(Roles = new[] { UserRoles.Admin })]
+        public async Task<IEnumerable<Usuario>> Usuarios(
+            [Service] MongoDbContext context)
+        {
+            return await context.Usuarios
+                .Find(_ => true)
+                .SortBy(u => u.NombreUsuario)
+                .ToListAsync();
         }
     }
 }
