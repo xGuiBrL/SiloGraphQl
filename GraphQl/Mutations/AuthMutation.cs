@@ -8,6 +8,7 @@ using InventarioSilo.Models;
 using InventarioSilo.Security;
 using InventarioSilo.Services;
 using MongoDB.Driver;
+using InventarioSilo.GraphQL.Validation;
 
 namespace InventarioSilo.GraphQL.Mutations
 {
@@ -97,6 +98,135 @@ namespace InventarioSilo.GraphQL.Mutations
             }
 
             return jwtService.GenerateToken(usuarioDb);
+        }
+
+        [Authorize(Roles = new[] { UserRoles.Admin })]
+        public async Task<Usuario> EditarUsuario(
+            ActualizarUsuarioInput input,
+            [Service] MongoDbContext context,
+            [Service] PasswordHasher passwordHasher)
+        {
+            if (input is null)
+            {
+                throw new GraphQLException("Los datos del usuario son obligatorios.");
+            }
+
+            var normalizedId = InputValidator.NormalizeObjectId(input.Id, "id");
+            var normalizedUsuario = NormalizeUsuario(input.Usuario);
+            var normalizedNombre = NormalizeNombre(input.Nombre);
+            var normalizedRol = NormalizeRol(input.Rol);
+            var normalizedPassword = NormalizePasswordIfProvided(input.Password);
+
+            var usuarios = context.Usuarios;
+            var usuarioDb = await usuarios.Find(u => u.Id == normalizedId).FirstOrDefaultAsync();
+            if (usuarioDb is null)
+            {
+                throw new GraphQLException("Usuario no encontrado.");
+            }
+
+            if (!string.Equals(usuarioDb.NombreUsuario, normalizedUsuario, StringComparison.OrdinalIgnoreCase))
+            {
+                var duplicate = await usuarios
+                    .Find(u => u.NombreUsuario == normalizedUsuario && u.Id != normalizedId)
+                    .FirstOrDefaultAsync();
+
+                if (duplicate is not null)
+                {
+                    throw new GraphQLException("Ya existe un usuario con ese nombre.");
+                }
+            }
+
+            var updates = new List<UpdateDefinition<Usuario>>
+            {
+                Builders<Usuario>.Update.Set(u => u.NombreUsuario, normalizedUsuario),
+                Builders<Usuario>.Update.Set(u => u.Nombre, normalizedNombre),
+                Builders<Usuario>.Update.Set(u => u.Rol, normalizedRol)
+            };
+
+            if (normalizedPassword is not null)
+            {
+                var hashed = passwordHasher.HashPassword(normalizedPassword);
+                updates.Add(Builders<Usuario>.Update.Set(u => u.Password, hashed));
+            }
+
+            var updateDefinition = Builders<Usuario>.Update.Combine(updates);
+            var updated = await usuarios.FindOneAndUpdateAsync(
+                u => u.Id == normalizedId,
+                updateDefinition,
+                new FindOneAndUpdateOptions<Usuario>
+                {
+                    ReturnDocument = ReturnDocument.After
+                });
+
+            return updated ?? throw new GraphQLException("No fue posible actualizar el usuario.");
+        }
+
+        [Authorize(Roles = new[] { UserRoles.Admin })]
+        public async Task<bool> EliminarUsuario(
+            string id,
+            [Service] MongoDbContext context)
+        {
+            var normalizedId = InputValidator.NormalizeObjectId(id, "id");
+            var result = await context.Usuarios.DeleteOneAsync(u => u.Id == normalizedId);
+
+            if (result.DeletedCount == 0)
+            {
+                throw new GraphQLException("Usuario no encontrado.");
+            }
+
+            return true;
+        }
+
+        private static string NormalizeUsuario(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new GraphQLException("El usuario es obligatorio.");
+            }
+
+            return value.Trim().ToLowerInvariant();
+        }
+
+        private static string NormalizeNombre(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new GraphQLException("El nombre es obligatorio.");
+            }
+
+            var text = value.Trim();
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLowerInvariant());
+        }
+
+        private static string NormalizeRol(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new GraphQLException("El rol es obligatorio.");
+            }
+
+            var normalized = value.Trim().ToLowerInvariant();
+            if (normalized != UserRoles.Admin && normalized != UserRoles.Usuario)
+            {
+                throw new GraphQLException("Rol inválido. Usa admin o usuario.");
+            }
+
+            return normalized;
+        }
+
+        private static string? NormalizePasswordIfProvided(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
+            }
+
+            if (value.Length < 6)
+            {
+                throw new GraphQLException("La contraseña debe tener al menos 6 caracteres.");
+            }
+
+            return value;
         }
     }
 }
