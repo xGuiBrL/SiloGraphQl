@@ -104,10 +104,32 @@ var app = builder.Build();
 
 app.UseRouting();
 
+// Global request logging placeholder; keep /health silent to avoid Render noise.
+app.Use(async (context, next) =>
+{
+    if (!context.Request.Path.StartsWithSegments("/health"))
+    {
+        // Normal logging for non-health requests (enable only when debugging noisy issues).
+        // var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+        // logger.LogInformation("Request: {Method} {Path}", context.Request.Method, context.Request.Path);
+    }
+
+    await next();
+});
+
 app.UseCors("DashboardCors");
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapGet("/health", (HttpContext context /*, ILogger<Program> logger */) =>
+    {
+        // Logging intentionally disabled; uncomment only when troubleshooting uptime pings.
+        // logger.LogInformation("Health check endpoint hit");
+
+        return Results.Ok("OK");
+    })
+    .AllowAnonymous();
 
 app.MapGraphQL("/graphql").RequireCors("DashboardCors");
 
