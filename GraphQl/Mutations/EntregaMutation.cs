@@ -19,7 +19,7 @@ namespace InventarioSilo.GraphQL.Mutations
             var items = context.GetCollection<Item>("Items");
             var entregas = context.GetCollection<Entrega>("Entregas");
 
-            var item = await GetItemByCodigoMaterialAsync(items, sanitized.CodigoMaterial);
+            var item = await GetItemByIdOrCodigoAsync(items, sanitized.ItemId, sanitized.CodigoMaterial);
             var itemId = EnsureItemId(item);
 
             InputValidator.EnsureItemSnapshotMatches(item, sanitized, "la entrega");
@@ -71,7 +71,9 @@ namespace InventarioSilo.GraphQL.Mutations
             Item targetItem;
             string targetItemId;
 
-            var movingToDifferentItem = !string.Equals(originalItem.CodigoMaterial, sanitized.CodigoMaterial, StringComparison.OrdinalIgnoreCase);
+            var movingToDifferentItem = !string.IsNullOrEmpty(sanitized.ItemId)
+                ? !string.Equals(originalItemId, sanitized.ItemId, StringComparison.Ordinal)
+                : !string.Equals(originalItem.CodigoMaterial, sanitized.CodigoMaterial, StringComparison.OrdinalIgnoreCase);
 
             if (movingToDifferentItem)
             {
@@ -79,7 +81,7 @@ namespace InventarioSilo.GraphQL.Mutations
                     i => i.Id == originalItemId,
                     Builders<Item>.Update.Inc(i => i.CantidadStock, existing.CantidadEntregada));
 
-                var newItem = await GetItemByCodigoMaterialAsync(items, sanitized.CodigoMaterial);
+                var newItem = await GetItemByIdOrCodigoAsync(items, sanitized.ItemId, sanitized.CodigoMaterial);
                 var newItemId = EnsureItemId(newItem);
 
                 InputValidator.EnsureItemSnapshotMatches(newItem, sanitized, "la entrega");

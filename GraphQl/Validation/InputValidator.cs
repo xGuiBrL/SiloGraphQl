@@ -46,6 +46,7 @@ namespace InventarioSilo.GraphQL.Validation
         public record MovementPayload(
             string Id,
             string CodigoMaterial,
+            string? ItemId,
             string Responsable,
             string DescripcionMaterial,
             string UnidadMedida,
@@ -126,6 +127,7 @@ namespace InventarioSilo.GraphQL.Validation
             return new MovementPayload(
                 string.Empty,
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
+                NormalizeOptionalObjectId(input.ItemId, "itemId"),
                 NormalizePlainText(input.RecibidoDe, "recibidoDe", 60, titleCase: true, preserveTrailingSpace: true),
                 NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
                 NormalizeUnit(input.UnidadMedida, "unidadMedida"),
@@ -150,6 +152,7 @@ namespace InventarioSilo.GraphQL.Validation
             return new MovementPayload(
                 string.Empty,
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
+                NormalizeOptionalObjectId(input.ItemId, "itemId"),
                 NormalizePlainText(input.EntregadoA, "entregadoA", 60, titleCase: true),
                 NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
                 NormalizeUnit(input.UnidadMedida, "unidadMedida"),
@@ -179,6 +182,21 @@ namespace InventarioSilo.GraphQL.Validation
             if (string.IsNullOrWhiteSpace(value))
             {
                 throw BuildValidationError(field, "El identificador es obligatorio.");
+            }
+
+            if (!ObjectId.TryParse(value, out var bsonId))
+            {
+                throw BuildValidationError(field, "Identificador inválido.");
+            }
+
+            return bsonId.ToString();
+        }
+
+        public static string? NormalizeOptionalObjectId(string? value, string field)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return null;
             }
 
             if (!ObjectId.TryParse(value, out var bsonId))

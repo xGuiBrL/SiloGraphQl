@@ -128,8 +128,10 @@ namespace InventarioSilo.GraphQL.Queries
 
                 yield return new ReporteMensual
                 {
+                    ItemId = item.Id,
                     CodigoMaterial = item.CodigoMaterial,
                     NombreMaterial = item.NombreMaterial,
+                    DescripcionMaterial = item.DescripcionMaterial,
                     TotalEntradas = totalEntradas,
                     TotalSalidas = totalSalidas,
                     UnidadMedida = item.UnidadMedida,

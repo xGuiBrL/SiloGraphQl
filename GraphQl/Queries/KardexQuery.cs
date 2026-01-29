@@ -12,25 +12,35 @@ namespace InventarioSilo.GraphQL.Queries
     {
         public async Task<KardexItem> KardexPorCodigoMaterial(
             string codigoMaterial,
+            string? itemId,
             [Service] MongoDbContext context)
         {
             var items = context.GetCollection<Item>("Items");
             var entregas = context.GetCollection<Entrega>("Entregas");
             var recepciones = context.GetCollection<Recepcion>("Recepciones");
 
-            var item = await items
+            Item? item = null;
+
+            if (!string.IsNullOrWhiteSpace(itemId))
+            {
+                item = await items
+                    .Find(i => i.Id == itemId)
+                    .FirstOrDefaultAsync();
+            }
+
+            item ??= await items
                 .Find(i => i.CodigoMaterial == codigoMaterial)
                 .FirstOrDefaultAsync();
 
             if (item == null)
                 throw new GraphQLException("Item no encontrado");
 
-            var itemId = EnsureItemId(item);
+            var resolvedItemId = EnsureItemId(item);
 
             var movimientos = new List<KardexMovimiento>();
 
             var entradas = recepciones
-                .Find(r => r.ItemId == itemId || (string.IsNullOrEmpty(r.ItemId) && r.CodigoMaterial == codigoMaterial))
+                .Find(r => r.ItemId == resolvedItemId || (string.IsNullOrEmpty(r.ItemId) && r.CodigoMaterial == codigoMaterial))
                 .ToList();
 
             movimientos.AddRange(entradas.Select(r => new KardexMovimiento
@@ -48,7 +58,7 @@ namespace InventarioSilo.GraphQL.Queries
             }));
 
             var salidas = entregas
-                .Find(e => e.ItemId == itemId || (string.IsNullOrEmpty(e.ItemId) && e.CodigoMaterial == codigoMaterial))
+                .Find(e => e.ItemId == resolvedItemId || (string.IsNullOrEmpty(e.ItemId) && e.CodigoMaterial == codigoMaterial))
                 .ToList();
 
             movimientos.AddRange(salidas.Select(e => new KardexMovimiento
