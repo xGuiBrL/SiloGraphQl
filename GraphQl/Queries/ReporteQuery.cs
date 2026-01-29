@@ -132,6 +132,7 @@ namespace InventarioSilo.GraphQL.Queries
                     CodigoMaterial = item.CodigoMaterial,
                     NombreMaterial = item.NombreMaterial,
                     DescripcionMaterial = item.DescripcionMaterial,
+                    Localizacion = item.Localizacion ?? string.Empty,
                     TotalEntradas = totalEntradas,
                     TotalSalidas = totalSalidas,
                     UnidadMedida = item.UnidadMedida,
