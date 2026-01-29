@@ -14,6 +14,9 @@ namespace InventarioSilo.GraphQL.Queries
             return context
                 .GetCollection<Item>("Items")
                 .Find(_ => true)
+                .SortBy(i => i.NombreMaterial)
+                .ThenBy(i => i.Localizacion)
+                .ThenBy(i => i.DescripcionMaterial)
                 .ToList();
         }
 

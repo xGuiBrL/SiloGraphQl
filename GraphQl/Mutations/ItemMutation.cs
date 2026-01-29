@@ -26,7 +26,6 @@ namespace InventarioSilo.GraphQL.Mutations
             var items = context.GetCollection<Item>("Items");
             var categorias = context.Categorias;
             var ubicaciones = context.Ubicaciones;
-            await EnsureUniqueMaterialCodeAsync(items, sanitized.CodigoMaterial);
 
             var categoria = await GetCategoriaOrThrowAsync(categorias, sanitized.CategoriaId);
             var ubicacion = await GetUbicacionOrThrowAsync(ubicaciones, sanitized.UbicacionId);
@@ -57,8 +56,6 @@ namespace InventarioSilo.GraphQL.Mutations
             var items = context.GetCollection<Item>("Items");
             var categorias = context.Categorias;
             var ubicaciones = context.Ubicaciones;
-
-            await EnsureUniqueMaterialCodeAsync(items, sanitized.CodigoMaterial, id);
 
             var existingItem = await items
                 .Find(i => i.Id == id)
@@ -227,29 +224,6 @@ namespace InventarioSilo.GraphQL.Mutations
             await Task.WhenAll(
                 recepciones.UpdateManyAsync(recepcionFilter, recepcionUpdate),
                 entregas.UpdateManyAsync(entregaFilter, entregaUpdate));
-        }
-
-        private static async Task EnsureUniqueMaterialCodeAsync(
-            IMongoCollection<Item> items,
-            string codigoMaterial,
-            string? excludeId = null)
-        {
-            var filter = Builders<Item>.Filter.Eq(i => i.CodigoMaterial, codigoMaterial);
-
-            if (!string.IsNullOrEmpty(excludeId))
-            {
-                filter &= Builders<Item>.Filter.Ne(i => i.Id, excludeId);
-            }
-
-            var duplicate = await items.Find(filter).FirstOrDefaultAsync();
-            if (duplicate is not null)
-            {
-                throw new GraphQLException(ErrorBuilder.New()
-                    .SetMessage("Ya existe un item con el mismo código de material.")
-                    .SetCode("VALIDATION_ERROR")
-                    .SetExtension("field", "codigoMaterial")
-                    .Build());
-            }
         }
 
         private static async Task RegistrarMovimientoSinRegistroAsync(
