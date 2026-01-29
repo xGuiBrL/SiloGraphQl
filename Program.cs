@@ -121,12 +121,19 @@ app.UseCors("DashboardCors");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("/health", (HttpContext context /*, ILogger<Program> logger */) =>
-    {
-        // logger.LogInformation("Health check endpoint hit");
+app.MapMethods("/health", new[] { HttpMethods.Get, HttpMethods.Head },
+        (HttpContext context /*, ILogger<Program> logger */) =>
+        {
+            // logger.LogInformation("Health check endpoint hit");
 
-        return Results.Ok("OK");
-    })
+            if (HttpMethods.IsHead(context.Request.Method))
+            {
+                // Keep HEAD responses lean (Render/UptimeRobot compatibility)
+                return Results.StatusCode(StatusCodes.Status200OK);
+            }
+
+            return Results.Ok("OK");
+        })
     .AllowAnonymous();
 
 app.MapGraphQL("/graphql").RequireCors("DashboardCors");
