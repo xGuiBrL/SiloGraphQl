@@ -125,8 +125,8 @@ app.MapMethods("/health", new[] { HttpMethods.Get, HttpMethods.Head },
         (HttpContext context /*, ILogger<Program> logger */) =>
         {
             // logger.LogInformation("Health check endpoint hit");
-            var activeWindowStart = new TimeSpan(10, 43, 0);
-            var activeWindowEnd = new TimeSpan(2, 17, 0);
+            var activeWindowStart = new TimeSpan(10, 55, 0);
+            var activeWindowEnd = new TimeSpan(3, 5, 0);
             var utcTime = DateTime.UtcNow.TimeOfDay;
 
             // Active window crosses midnight, so combine >= start OR < end.
