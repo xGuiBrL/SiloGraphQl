@@ -22,7 +22,12 @@ namespace InventarioSilo.GraphQL.Validation
             ["LT"] = "Lt",
             ["KG"] = "Kg",
             ["MTS"] = "Mts",
-            ["UND"] = "Und"
+            ["UND"] = "Und",
+            ["QQ"] = "QQ",
+            ["PQTES"] = "Pqtes",
+            ["PZAS"] = "Pzas",
+            ["MT2"] = "Mt2",
+            ["MT3"] = "Mt3"
         };
 
         public record ItemPayload(
@@ -260,7 +265,7 @@ namespace InventarioSilo.GraphQL.Validation
             var normalized = NormalizeCode(value, field, 10);
             if (!AllowedUnits.TryGetValue(normalized, out var canonical))
             {
-                throw BuildValidationError(field, "Selecciona una unidad válida (Lt, Kg, Mts o Und).");
+                throw BuildValidationError(field, "Selecciona una unidad válida (Lt, Kg, Mts, Und, QQ, Pqtes, Pzas, Mt2 o Mt3).");
             }
 
             return canonical;
