@@ -125,14 +125,24 @@ app.MapMethods("/health", new[] { HttpMethods.Get, HttpMethods.Head },
         (HttpContext context /*, ILogger<Program> logger */) =>
         {
             // logger.LogInformation("Health check endpoint hit");
+            var activeWindowStart = new TimeSpan(10, 43, 0);
+            var activeWindowEnd = new TimeSpan(2, 17, 0);
+            var utcTime = DateTime.UtcNow.TimeOfDay;
+
+            // Active window crosses midnight, so combine >= start OR < end.
+            var isActive = utcTime >= activeWindowStart || utcTime < activeWindowEnd;
+
+            if (!isActive)
+            {
+                return Results.StatusCode(StatusCodes.Status503ServiceUnavailable);
+            }
 
             if (HttpMethods.IsHead(context.Request.Method))
             {
-                // Keep HEAD responses lean (Render/UptimeRobot compatibility)
                 return Results.StatusCode(StatusCodes.Status200OK);
             }
 
-            return Results.Ok("OK");
+            return Results.Ok("ok");
         })
     .AllowAnonymous();
 
