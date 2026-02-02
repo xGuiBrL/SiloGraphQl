@@ -69,7 +69,7 @@ namespace InventarioSilo.GraphQL.Validation
                 NormalizeObjectId(input.CategoriaId, "categoriaId"),
                 NormalizeObjectId(input.UbicacionId, "ubicacionId"),
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
-                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
+                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false, allowAnyChar: true),
                 NormalizeQuantity(input.CantidadStock, "cantidadStock", ItemMinStock, ItemMaxStock),
                 NormalizeUnit(input.UnidadMedida, "unidadMedida"));
         }
@@ -134,10 +134,10 @@ namespace InventarioSilo.GraphQL.Validation
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
                 NormalizeOptionalObjectId(input.ItemId, "itemId"),
                 NormalizePlainText(input.RecibidoDe, "recibidoDe", 60, titleCase: true, preserveTrailingSpace: true),
-                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
+                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false, allowAnyChar: true),
                 NormalizeUnit(input.UnidadMedida, "unidadMedida"),
                 NormalizeQuantity(input.CantidadRecibida, "cantidadRecibida", MovementMin, MovementMax),
-                NormalizeOptionalText(input.Observaciones, 220));
+                NormalizeOptionalText(input.Observaciones, 220, allowAnyChar: true));
         }
 
         public static MovementPayload NormalizeRecepcionUpdateInput(RecepcionUpdateInput input)
@@ -159,10 +159,10 @@ namespace InventarioSilo.GraphQL.Validation
                 NormalizeCode(input.CodigoMaterial, "codigoMaterial", 25, allowSpaces: true),
                 NormalizeOptionalObjectId(input.ItemId, "itemId"),
                 NormalizePlainText(input.EntregadoA, "entregadoA", 60, titleCase: true),
-                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false),
+                NormalizePlainText(input.DescripcionMaterial, "descripcionMaterial", 140, titleCase: false, allowAnyChar: true),
                 NormalizeUnit(input.UnidadMedida, "unidadMedida"),
                 NormalizeQuantity(input.CantidadEntregada, "cantidadEntregada", MovementMin, MovementMax),
-                NormalizeOptionalText(input.Observaciones, 220));
+                NormalizeOptionalText(input.Observaciones, 220, allowAnyChar: true));
         }
 
         public static MovementPayload NormalizeEntregaUpdateInput(EntregaUpdateInput input)
@@ -271,7 +271,7 @@ namespace InventarioSilo.GraphQL.Validation
             return canonical;
         }
 
-        private static string NormalizePlainText(string? value, string field, int maxLength, bool titleCase, bool preserveTrailingSpace = false)
+        private static string NormalizePlainText(string? value, string field, int maxLength, bool titleCase, bool preserveTrailingSpace = false, bool allowAnyChar = false)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -280,7 +280,7 @@ namespace InventarioSilo.GraphQL.Validation
 
             var hadTrailingSpace = preserveTrailingSpace && Regex.IsMatch(value, "\\s$", RegexOptions.Singleline);
             var normalized = Regex.Replace(value.Trim(), @"\s+", " ");
-            if (!PlainTextRegex.IsMatch(normalized))
+            if (!allowAnyChar && !PlainTextRegex.IsMatch(normalized))
             {
                 throw BuildValidationError(field, "Se encontraron caracteres no permitidos.");
             }
@@ -303,7 +303,7 @@ namespace InventarioSilo.GraphQL.Validation
             return normalized;
         }
 
-        private static string? NormalizeOptionalText(string? value, int maxLength)
+        private static string? NormalizeOptionalText(string? value, int maxLength, bool allowAnyChar = false)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -311,6 +311,11 @@ namespace InventarioSilo.GraphQL.Validation
             }
 
             var normalized = Regex.Replace(value.Trim(), @"\s+", " ");
+            if (!allowAnyChar)
+            {
+                normalized = Regex.Replace(normalized, @"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9.,()/\'\-\s]", string.Empty);
+            }
+
             if (normalized.Length > maxLength)
             {
                 normalized = normalized[..maxLength];
