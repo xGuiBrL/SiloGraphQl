@@ -9,11 +9,16 @@ namespace InventarioSilo.GraphQL.Queries
     public class ItemQuery
     {
         public IEnumerable<Item> GetItems(
+            bool soloConStock = false,
             [Service] MongoDbContext context)
         {
-            return context
-                .GetCollection<Item>("Items")
-                .Find(_ => true)
+            var items = context.GetCollection<Item>("Items");
+            var filter = soloConStock
+                ? Builders<Item>.Filter.Gt(i => i.CantidadStock, 0)
+                : Builders<Item>.Filter.Empty;
+
+            return items
+                .Find(filter)
                 .SortBy(i => i.NombreMaterial)
                 .ThenBy(i => i.Localizacion)
                 .ThenBy(i => i.DescripcionMaterial)
