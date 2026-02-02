@@ -9,8 +9,8 @@ namespace InventarioSilo.GraphQL.Queries
     public class ItemQuery
     {
         public IEnumerable<Item> GetItems(
-            bool soloConStock = false,
-            [Service] MongoDbContext context)
+            [Service] MongoDbContext context,
+            bool soloConStock = false)
         {
             var items = context.GetCollection<Item>("Items");
             var filter = soloConStock
