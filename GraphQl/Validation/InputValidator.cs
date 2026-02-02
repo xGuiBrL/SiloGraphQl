@@ -16,7 +16,7 @@ namespace InventarioSilo.GraphQL.Validation
         public const decimal MovementMax = 999_999m;
 
         private static readonly Regex CodeRegex = new("^[A-Z0-9-]+$", RegexOptions.Compiled);
-        private static readonly Regex PlainTextRegex = new(@"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9.,()'\-\s]+$", RegexOptions.Compiled);
+        private static readonly Regex PlainTextRegex = new(@"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9.,()/\'\-\s]+$", RegexOptions.Compiled);
         private static readonly Dictionary<string, string> AllowedUnits = new(StringComparer.OrdinalIgnoreCase)
         {
             ["LT"] = "Lt",
