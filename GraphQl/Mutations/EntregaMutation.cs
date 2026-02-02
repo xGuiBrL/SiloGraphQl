@@ -103,7 +103,8 @@ namespace InventarioSilo.GraphQL.Mutations
                 var delta = sanitized.Cantidad - existing.CantidadEntregada;
                 if (delta != 0)
                 {
-                    if (delta > 0 && originalItem.CantidadStock < delta)
+                    var available = originalItem.CantidadStock + existing.CantidadEntregada;
+                    if (sanitized.Cantidad > available)
                         throw new GraphQLException("Stock insuficiente");
 
                     await items.UpdateOneAsync(
